@@ -30,6 +30,7 @@ const initialState = {
   input: '',
   imageUrl: '',
   boxes: [],
+  faceCount: 0,
   route: 'signin',
   isSignedIn: false,
   user:{
@@ -64,6 +65,8 @@ class App extends Component{
     const image = document.getElementById("inputimage");
     const width = Number(image.width);
     const height = Number(image.height);
+    console.log(clarifaiFace.length);
+    this.setState(Object.assign(this.state.user, {faceCount: clarifaiFace.length}))
     return clarifaiFace.map(face => {   
       return {
       leftCol: face.left_col * width,
@@ -127,8 +130,8 @@ class App extends Component{
         { this.state.route === 'home'
         ? <div>
             <Logo/>
-            <Rank name={this.state.user.name} entries={this.state.user.entries}/>
-            <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+            <Rank name={this.state.user.name}  entries={this.state.user.entries}/>
+            <ImageLinkForm faceCount={this.state.user.faceCount} onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
             <FaceRecognition boxes={this.state.boxes} imageUrl={this.state.imageUrl}/>
           </div>
         : (this.state.route === 'signin'
