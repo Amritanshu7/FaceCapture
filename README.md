@@ -12,7 +12,7 @@ Sample Image URLS with image extensions
 <a href="https://images.pexels.com/photos/1206059/pexels-photo-1206059.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
 ">Sample Image2</a>
 
-
+![picture of the app](https://github.com/Amritanshu7/FaceCapture/blob/master/img.png)
 
 ## Technologies Used
 ### Front-End
